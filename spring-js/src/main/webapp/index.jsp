@@ -2,7 +2,7 @@
 <body>
 <h2>Hello World!</h2>
 
-<form>
+<form action="add">
     <p>Name</p>
     <input type="text" name="name" lebel="Name">
     <p>District</p>
