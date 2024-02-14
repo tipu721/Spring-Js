@@ -8,6 +8,6 @@ public class AddController {
 
     @RequestMapping("/add")
     String add(){
-       return "display.jsp";
+       return "demo.html";
     }
 }
