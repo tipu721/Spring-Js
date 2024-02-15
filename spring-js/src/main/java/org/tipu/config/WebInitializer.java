@@ -1,23 +1,23 @@
 package org.tipu.config;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
-import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 
-public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-    @Override
-    protected Class<?>[] getRootConfigClasses() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    protected Class<?>[] getServletConfigClasses() {
-        // TODO Auto-generated method stub
-        return new Class[] { MvcConfig.class };
-    }
+public class WebInitializer implements WebApplicationInitializer {
 
     @Override
-    protected String[] getServletMappings() {
-        // TODO Auto-generated method stub
-        return new String[] { "/" };
+    public void onStartup(ServletContext servletContext) throws ServletException {
+
+        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+        context.register(AppConfig.class);
+        context.setServletContext(servletContext);
+        ServletRegistration.Dynamic servlet = servletContext.addServlet("dispatcher", new DispatcherServlet(context));
+        servlet.setLoadOnStartup(1);
+        servlet.addMapping("/");
+        context.close();
     }
 }
