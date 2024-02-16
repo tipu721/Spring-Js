@@ -34,8 +34,6 @@ public class AppConfig implements WebMvcConfigurer {
         srtr.setApplicationContext(applicationContext);
         srtr.setPrefix("/WEB-INF/views/");
         srtr.setSuffix(".html");
-        srtr.setCharacterEncoding("UTF-8");
-        srtr.setCacheable(false);
         return srtr;
     }
 
