@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1">
-    <title>User Registration</title>
+    <title>Student Information</title>
 </head>
 <body>
-<h1>This is List Page</h1>
+<h1>Student Information</h1>
+<p th:text="'First Name: ' + ${student.name}"></p>
+<p th:text="'Last Name: ' + ${student.email}"></p>
+<p th:text="'Age: ' + ${student.age}"></p>
 </body>
 </html>
