@@ -1,6 +1,7 @@
 package org.tipu.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -12,7 +13,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-public class DatabaseConfig {
+@EnableJpaRepositories
+public class DataBaseConfig {
 
     // DataSource configuration for MySQL
     @Bean
